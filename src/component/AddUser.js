@@ -1,25 +1,25 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 function AddUser(props) {
-    const dataFirst = {id:null, name:'' };
+    const dataFirst = { id: null, name: '' };
     const [user, setUser] = useState(dataFirst);
-    const changeInput = event =>{
+    const changeInput = event => {
         console.log(event);
-        const {name, value} = event.target;
-        setUser({...user, [name]:value});
+        const { name, value } = event.target;
+        setUser({ ...user, [name]: value });
     }
 
-    const submitForm = event =>{
+    const submitForm = event => {
         event.preventDefault();
-        if (user.name){
+        if (user.name) {
             props.addUser(user)
+            setUser(dataFirst);
         }
     }
     return (
         <div>
             <form>
-                <lable>Name</lable>
-                <input name="name" type='text' onChange={changeInput} value={user.name} className='form-control'/>
+                <textarea name="name" type='text' onChange={changeInput} value={user.name} className='form-control'> </textarea>                
                 <button className='btn btn-info' onClick={submitForm}>Thêm mới</button>
             </form>
         </div>

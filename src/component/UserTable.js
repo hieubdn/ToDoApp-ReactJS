@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 function UserTable(props) {
   return (
-    <div>
+    <div className='table-output'>
       <table className='table'>
         <thead> {/* sử dụng để nhóm các hàng tiêu đề (header) trong một bảng */}
           <tr> {/* sử dụng để định nghĩa một hàng (row) trong bảng  */}
             <td>ID</td>
-            <td>Name</td>
+            <td>Task</td>
             <td>Action</td>
           </tr>
         </thead>
@@ -20,8 +20,8 @@ function UserTable(props) {
                   <td>{id}</td>
                   <td>{name}</td>
                   <td>
-                    <button className='btn btn-primary'>Sửa</button>
-                    <button className='btn btn-danger' onClick={() =>props.deleteUser(id)}>Xóa</button>
+                    <button className='btn btn-action btn-primary' onClick={() =>props.editUser(id, name)}>Sửa</button>
+                    <button className='btn btn-action btn-danger' onClick={() =>props.deleteUser(id)}>Xóa</button>
                   </td>
                 </tr>
               );
